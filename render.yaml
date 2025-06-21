@@ -1,0 +1,51 @@
+# render.yaml
+services:
+  # Service 1: The Static Frontend
+  - type: static
+    name: netflix-frontend
+    env: static
+    rootDir: frontend
+    buildFilter:
+      paths:
+      - frontend/**
+
+  # Service 2: The Node.js Backend
+  - type: web
+    name: netflix-backend
+    env: node
+    rootDir: backend
+    plan: free
+    buildFilter:
+      paths:
+      - backend/**
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    healthCheckPath: /api/posts
+
+  # Service 3: The Python Telegram Bot
+  - type: web
+    name: telegram-bot
+    env: python
+    rootDir: bot
+    plan: free
+    buildFilter:
+      paths:
+      - bot/**
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn bot:app"
+    healthCheckPath: /set_webhook
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.9
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # This makes it a secret you will enter on the website
+      - key: BACKEND_API_URL
+        fromService:
+          type: web
+          name: netflix-backend
+          property: url
+      - key: BOT_URL
+        fromService:
+          type: web
+          name: telegram-bot
+          property: url
