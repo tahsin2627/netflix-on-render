@@ -1,7 +1,7 @@
-# render.yaml
+# render.yaml (Corrected Version)
 services:
   # Service 1: The Static Frontend
-  - type: static
+  - type: static site # <-- THIS IS THE FIX
     name: netflix-frontend
     env: static
     rootDir: frontend
@@ -38,7 +38,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.9.9
       - key: TELEGRAM_BOT_TOKEN
-        sync: false # This makes it a secret you will enter on the website
+        sync: false
       - key: BACKEND_API_URL
         fromService:
           type: web
