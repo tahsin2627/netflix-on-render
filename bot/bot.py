@@ -74,4 +74,4 @@ def set_webhook():
 # A simple welcome message for the root URL
 @app.route('/')
 def index():
-    return "This is the Telegram bot for the Netflix Clone
+    return "This is the Telegram bot for the Netflix Clone.", 200
