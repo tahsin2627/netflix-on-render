@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #e50914;
+    --dark-color: #141414;
+    --light-color: #f4f4f4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #000;
+    color: var(--light-color);
+}
+
+.main-header {
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#banner {
+    height: 80vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#banner h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#banner p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.content-grid {
+    padding: 2rem;
+}
+
+.content-grid h2 {
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.poster {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+}
+
+.poster img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--dark-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    border-top: 1px solid #333;
+}
+
+.nav-item {
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+}
