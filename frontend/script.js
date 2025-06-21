@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // IMPORTANT: This is a placeholder URL.
     // We will replace this with our real backend URL after we deploy to Render.
-    const apiUrl = 'https://YOUR_BACKEND_SERVICE_URL_WILL_GO_HERE';
+    const apiUrl = 'https://netflix-backend-npgj.onrender.com';
 
     const loadContent = async () => {
         try {
