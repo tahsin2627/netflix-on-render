@@ -1,15 +1,6 @@
-# render.yaml (Corrected Version)
+# render.yaml (Simplified Version)
 services:
-  # Service 1: The Static Frontend
-  - type: static site # <-- THIS IS THE FIX
-    name: netflix-frontend
-    env: static
-    rootDir: frontend
-    buildFilter:
-      paths:
-      - frontend/**
-
-  # Service 2: The Node.js Backend
+  # Service 1: The Node.js Backend
   - type: web
     name: netflix-backend
     env: node
@@ -22,7 +13,7 @@ services:
     startCommand: "node server.js"
     healthCheckPath: /api/posts
 
-  # Service 3: The Python Telegram Bot
+  # Service 2: The Python Telegram Bot
   - type: web
     name: telegram-bot
     env: python
